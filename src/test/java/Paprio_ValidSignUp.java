@@ -17,119 +17,112 @@ public class Paprio_ValidSignUp {
     static String validConfirmPassword = "Ephraim123##";
 
 
-
-    public static void test() {
-        for(String validFirstName : validFirstNames )
-        {
-            System.out.println(validFirstName);
-        }
-    }
-
-    public static void SignUp_withValidFirstName(String firstName) throws InterruptedException {
+    public static void SignUp_withValidFirstName(WebDriver localDriver,String firstName) throws InterruptedException {
         validEmail = TempMailGenerator.generateValidTempEmail();
+
         // Navigate to Sign Up Page
-        driver.navigate().to("http://routetask.runasp.net/register");
+        localDriver.navigate().to("http://routetask.runasp.net/register");
 
         // Provide A Valid First Name
-        driver.findElement(By.id("firstName")).sendKeys(firstName);
+        localDriver.findElement(By.id("firstName")).sendKeys(firstName);
 
         // Provide Valid Data in the all other fields
-        driver.findElement(By.id("lastName")).sendKeys("Hedia");
-        driver.findElement(By.id("exampleInputEmail1")).sendKeys(validEmail);
-        driver.findElement(By.id("exampleInputPassword1")).sendKeys("Ephraim123##");
-        driver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys("Ephraim123##");
-        driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
+        localDriver.findElement(By.id("lastName")).sendKeys("Hedia");
+        localDriver.findElement(By.id("exampleInputEmail1")).sendKeys(validEmail);
+        localDriver.findElement(By.id("exampleInputPassword1")).sendKeys("Ephraim123##");
+        localDriver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys("Ephraim123##");
+        localDriver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
 
         Thread.sleep(4000);
-        if(driver.getCurrentUrl().contains("confirmation-sent-to-email"))
+        if(localDriver.getCurrentUrl().contains("confirmation-sent-to-email"))
             System.out.println("First Name Test : Passed \t with data : " + firstName );
         else
             System.out.println("First Name Test : Failed \t with data : " + firstName );
 
     }
 
-    public static void SignUp_withValidLastName(String lastName) throws InterruptedException {
+    public static void SignUp_withValidLastName(WebDriver localDriver,String lastName) throws InterruptedException {
         validEmail = TempMailGenerator.generateValidTempEmail();        // Navigate to Sign Up Page
-        driver.navigate().to("http://routetask.runasp.net/register");
+        localDriver.navigate().to("http://routetask.runasp.net/register");
 
-        // Provide A Valid First Name
-        driver.findElement(By.id("firstName")).sendKeys("Ephraim");
+        // Provide A Valid Last Name
+        localDriver.findElement(By.id("lastName")).sendKeys(lastName);
 
         // Provide Valid Data in the all other fields
-        driver.findElement(By.id("lastName")).sendKeys(lastName);
-        driver.findElement(By.id("exampleInputEmail1")).sendKeys(validEmail);
-        driver.findElement(By.id("exampleInputPassword1")).sendKeys("Ephraim123##");
-        driver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys("Ephraim123##");
-        driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
+        localDriver.findElement(By.id("firstName")).sendKeys("Ephraim");
+        localDriver.findElement(By.id("exampleInputEmail1")).sendKeys(validEmail);
+        localDriver.findElement(By.id("exampleInputPassword1")).sendKeys("Ephraim123##");
+        localDriver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys("Ephraim123##");
+        localDriver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
 
         Thread.sleep(4000);
-        if(driver.getCurrentUrl().contains("confirmation-sent-to-email"))
+        if(localDriver.getCurrentUrl().contains("confirmation-sent-to-email"))
             System.out.println("Last Name Test : Passed \t with data : " + lastName );
         else
             System.out.println("Last Name Test : Failed \t with data : " + lastName );
     }
 
-    public static void SignUp_withValidPassword(String password) throws InterruptedException {
+    public static void SignUp_withValidPassword(WebDriver localDriver,String password) throws InterruptedException {
         validEmail = TempMailGenerator.generateValidTempEmail();        // Navigate to Sign Up Page
-        driver.navigate().to("http://routetask.runasp.net/register");
+        localDriver.navigate().to("http://routetask.runasp.net/register");
 
-        // Provide A Valid First Name
-        driver.findElement(By.id("firstName")).sendKeys("Ephraim");
+        // Provide A Valid Password
+        localDriver.findElement(By.id("exampleInputPassword1")).sendKeys(password);
 
         // Provide Valid Data in the all other fields
-        driver.findElement(By.id("lastName")).sendKeys("Hedia");
-        driver.findElement(By.id("exampleInputEmail1")).sendKeys(validEmail);
-        driver.findElement(By.id("exampleInputPassword1")).sendKeys(password);
-        driver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys("Ephraim123##");
-        driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
+        localDriver.findElement(By.id("firstName")).sendKeys("Ephraim");
+        localDriver.findElement(By.id("lastName")).sendKeys("Hedia");
+        localDriver.findElement(By.id("exampleInputEmail1")).sendKeys(validEmail);
+        localDriver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys("Ephraim123##");
+        localDriver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
 
         Thread.sleep(4000);
-        if(driver.getCurrentUrl().contains("confirmation-sent-to-email"))
+        if(localDriver.getCurrentUrl().contains("confirmation-sent-to-email"))
             System.out.println("Valid Password Test : Passed \t with data : " + password );
         else
             System.out.println("Valid Password Test : Failed \t with data : " + password );
 
     }
 
-    public static void SignUp_withValidConfirmPassword(String confirmPassword) throws InterruptedException {
+    public static void SignUp_withValidConfirmPassword(WebDriver localDriver,String confirmPassword) throws InterruptedException {
         validEmail = TempMailGenerator.generateValidTempEmail();
         // Navigate to Sign Up Page
-        driver.navigate().to("http://routetask.runasp.net/register");
+        localDriver.navigate().to("http://routetask.runasp.net/register");
 
-        // Provide A Valid First Name
-        driver.findElement(By.id("firstName")).sendKeys("Ephraim");
+        // Provide A Matched Confirm Password
+        localDriver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys(confirmPassword);
 
         // Provide Valid Data in the all other fields
-        driver.findElement(By.id("lastName")).sendKeys("Hedia");
-        driver.findElement(By.id("exampleInputEmail1")).sendKeys(validEmail);
-        driver.findElement(By.id("exampleInputPassword1")).sendKeys("Ephraim123##");
-        driver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys(confirmPassword);
-        driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
+        localDriver.findElement(By.id("firstName")).sendKeys("Ephraim");
+        localDriver.findElement(By.id("lastName")).sendKeys("Hedia");
+        localDriver.findElement(By.id("exampleInputEmail1")).sendKeys(validEmail);
+        localDriver.findElement(By.id("exampleInputPassword1")).sendKeys("Ephraim123##");
+        localDriver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
 
         Thread.sleep(4000);
-        if(driver.getCurrentUrl().contains("confirmation-sent-to-email"))
+        if(localDriver.getCurrentUrl().contains("confirmation-sent-to-email"))
             System.out.println("Valid Confirm Password Test : Passed \twith data : " + confirmPassword );
         else
             System.out.println("Valid Confirm Password Test : Failed \twith data : " + confirmPassword );
 
     }
 
-    public static void SignUp_withValidEmail(String email) throws InterruptedException {
+    public static void SignUp_withValidEmail(WebDriver localDriver,String email) throws InterruptedException {
         // Navigate to Sign Up Page
-        driver.navigate().to("http://routetask.runasp.net/register");
+        localDriver.navigate().to("http://routetask.runasp.net/register");
 
-        // Provide A Valid First Name
-        driver.findElement(By.id("firstName")).sendKeys("Ephraim");
+        // Provide A Valid Email
+        localDriver.findElement(By.id("exampleInputEmail1")).sendKeys(email);
 
         // Provide Valid Data in the all other fields
-        driver.findElement(By.id("lastName")).sendKeys("Hedia");
-        driver.findElement(By.id("exampleInputEmail1")).sendKeys(email);
-        driver.findElement(By.id("exampleInputPassword1")).sendKeys("Ephraim123##");
-        driver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys("Ephraim123##");
-        driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
+        localDriver.findElement(By.id("firstName")).sendKeys("Ephraim");
+        localDriver.findElement(By.id("lastName")).sendKeys("Hedia");
+        localDriver.findElement(By.id("exampleInputPassword1")).sendKeys("Ephraim123##");
+        localDriver.findElement(By.id("exampleInputConfirmPassword1")).sendKeys("Ephraim123##");
+        localDriver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/app-register[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[5]/button[1]/div[1]")).click();
 
         Thread.sleep(4000);
-        if(driver.getCurrentUrl().contains("confirmation-sent-to-email"))
+        if(localDriver.getCurrentUrl().contains("confirmation-sent-to-email"))
             System.out.println("Valid Email Test : Passed \twith data : " + email );
         else
             System.out.println("Valid Email Test : Failed \twith data : " + email );
@@ -146,26 +139,24 @@ public class Paprio_ValidSignUp {
         // Validate A Sign-Up with  Valid First Name
         for (String fistName : validFirstNames)
         {
-            SignUp_withValidFirstName(fistName);
+            SignUp_withValidFirstName(driver,fistName);
         }
 
         // Validate A Sign-Up with  Valid Last Name
         for (String lastName : validLastNames)
         {
-            SignUp_withValidLastName(lastName);
+            SignUp_withValidLastName(driver,lastName);
         }
 
+        // Validate A Sign-Up with  Valid Email
+        validEmail = TempMailGenerator.generateValidTempEmail();
+        SignUp_withValidEmail(driver,validEmail);
+
         // Validate A Sign-Up with  Valid Password
-        SignUp_withValidPassword(validPassword);
+        SignUp_withValidPassword(driver,validPassword);
 
         // Validate A Sign-Up with  Valid Confirm Password
-        SignUp_withValidConfirmPassword(validConfirmPassword);
-
-
-        // Validate A Sign-Up with  Valid Email
-
-        validEmail = TempMailGenerator.generateValidTempEmail();
-        SignUp_withValidEmail(validEmail);
+        SignUp_withValidConfirmPassword(driver,validConfirmPassword);
 
         driver.quit();
     }
