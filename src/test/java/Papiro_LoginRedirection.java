@@ -1,17 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import net.bytebuddy.asm.Advice;
-import org.apache.commons.compress.archivers.zip.ScatterZipOutputStream;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-
-
 
 public class Papiro_LoginRedirection {
     static  WebDriver driver ;
@@ -39,7 +29,6 @@ public class Papiro_LoginRedirection {
     }
 
     public static void ValidateRedirectionToUnauthorizedPages(WebDriver Local_driver) throws InterruptedException {
-
         Papiro_ValidLogin.ValidateLoginWithRegisteredEmail(Local_driver);
         Local_driver.navigate().to("http://routetask.runasp.net/login");
         Thread.sleep(2000);
@@ -48,7 +37,7 @@ public class Papiro_LoginRedirection {
             System.out.println("Test Failed , I Can Navigate to Login Page After Sign In");
             return ;
         }
-
+        System.out.println("Test Passed: Couldn't navigate to Login Page again when logged in");
 
         Local_driver.navigate().to("http://routetask.runasp.net/register");
         Thread.sleep(2000);
@@ -57,6 +46,7 @@ public class Papiro_LoginRedirection {
             System.out.println("Test Failed , I Can Navigate to register Page After Sign In");
             return ;
         }
+        System.out.println("Test Passed: Couldn't navigate to Register Page when logged in");
 
         Local_driver.navigate().to("http://routetask.runasp.net/forget-password");
         Thread.sleep(2000);
@@ -65,8 +55,8 @@ public class Papiro_LoginRedirection {
             System.out.println("Test Failed , I Can Navigate to Forget Password Page After Sign In");
             return ;
         }
-        System.out.println("Redirection To Unauthorized Pages Test : Passed");
-
+        System.out.println("Test Passed: Couldn't navigate to Forget Password Page when logged in");
+        System.out.println("Redirection To All Unauthorized Pages Test : Passed");
     }
 
     public static void ValidateToBackToHomePageAfterLogin(WebDriver Local_driver) throws InterruptedException
@@ -97,16 +87,12 @@ public class Papiro_LoginRedirection {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("http://routetask.runasp.net/");
-
-
         ValidateRedirectionToForgetPasswordPage(driver);
         ValidateRedirectionToCreateAccountPage(driver);
         ValidateToBackToHomePageAfterLogin(driver);
         ValidateToLogout(driver);
         ValidateRedirectionToUnauthorizedPages(driver);
         ValidateToLogout(driver);
-
         driver.quit();
-
     }
 }
