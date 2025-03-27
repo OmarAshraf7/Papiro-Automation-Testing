@@ -3,8 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
-
 public class Papiro_ValidLogin {
     static  WebDriver driver ;
     static String registeredEmail = "ephraimhedia2@gmail.com";

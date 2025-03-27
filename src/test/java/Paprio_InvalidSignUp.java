@@ -5,11 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Paprio_InvalidSignUp {
-
     static  WebDriver driver ;
-
     static String validEmail = "mai123@gmail.com";
     static List<String> invalidFirstNames = new ArrayList<>(List.of("L", "Thequickbrownfoxjumpsoverthelazydogseverydaysoon","Ephraim##$$", "EPhraim213456","Ephraimعمراشرف"));
     static List<String> invalidLastNames = new ArrayList<>(List.of("L", "Thequickbrownfoxjumpsoverthelazydogseverydaysoon","Ephraim##$$", "EPhraim213456","Ephraimعمراشرف"));
@@ -17,7 +14,6 @@ public class Paprio_InvalidSignUp {
     static List<String> invalidEmails= new ArrayList<>(List.of("omarAshraf123","omar Ashraf123@gmail.com","omarAsharf@gamil.com","omarAsharf123@gmail.cm","@gmail.com"));
     static String invalidConfirmPassword = "sdavcxvmdsfoisdffs";
     static String registeredEmail = "ephraimhedia2@gmail.com";
-
 
     public static void SignUp_withInvalidFirstName(WebDriver localDriver,String firstName) throws InterruptedException {
         validEmail = TempMailGenerator.generateValidTempEmail();
@@ -249,11 +245,7 @@ public class Paprio_InvalidSignUp {
             System.out.println("Empty Confirm Password Test : Passed");
     }
 
-
-
-
     public static void main(String[] args) throws InterruptedException {
-
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
