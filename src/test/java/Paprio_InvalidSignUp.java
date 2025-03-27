@@ -76,9 +76,9 @@ public class Paprio_InvalidSignUp {
 
         Thread.sleep(4000);
         if(localDriver.getCurrentUrl().contains("confirmation-sent-to-email"))
-            System.out.println("Valid Password Test : Failed \t with data : " + password );
+            System.out.println("Invalid Password Test : Failed \t with data : " + password );
         else
-            System.out.println("Valid Password Test : Passed \t with data : " + password );
+            System.out.println("Invalid Password Test : Passed \t with data : " + password );
 
     }
 
@@ -100,9 +100,9 @@ public class Paprio_InvalidSignUp {
 
         Thread.sleep(4000);
         if(localDriver.getCurrentUrl().contains("confirmation-sent-to-email"))
-            System.out.println("Valid Confirm Password Test : Failed \twith data : " + confirmPassword );
+            System.out.println("Invalid Confirm Password Test : Failed \twith data : " + confirmPassword );
         else
-            System.out.println("Valid Confirm Password Test : Passed \twith data : " + confirmPassword );
+            System.out.println("Invalid Confirm Password Test : Passed \twith data : " + confirmPassword );
 
     }
 
@@ -122,9 +122,9 @@ public class Paprio_InvalidSignUp {
 
         Thread.sleep(4000);
         if(localDriver.getCurrentUrl().contains("confirmation-sent-to-email"))
-            System.out.println("Valid Email Test : Failed \twith data : " + email );
+            System.out.println("Invalid Email Test : Failed \twith data : " + email );
         else
-            System.out.println("Valid Email Test : Passed \twith data : " + email );
+            System.out.println("Invalid Email Test : Passed \twith data : " + email );
     }
 
     public static void SignUp_withPreRegisteredEmail(WebDriver localDriver,String registeredEmail) throws InterruptedException {

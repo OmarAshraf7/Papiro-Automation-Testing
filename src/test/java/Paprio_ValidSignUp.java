@@ -7,15 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Paprio_ValidSignUp {
-
     static  WebDriver driver ;
-
     static List<String> validFirstNames = new ArrayList<>(List.of("Ephraim", "Mi","عز", "احمد"));
     static List<String> validLastNames = new ArrayList<>(List.of("Ephraim", "Mi","عز", "احمد"));
     static String validEmail = "mai123@gmail.com";
     static String validPassword = "Ephraim123##";
     static String validConfirmPassword = "Ephraim123##";
-
 
     public static void SignUp_withValidFirstName(WebDriver localDriver,String firstName) throws InterruptedException {
         validEmail = TempMailGenerator.generateValidTempEmail();
@@ -38,7 +35,6 @@ public class Paprio_ValidSignUp {
             System.out.println("First Name Test : Passed \t with data : " + firstName );
         else
             System.out.println("First Name Test : Failed \t with data : " + firstName );
-
     }
 
     public static void SignUp_withValidLastName(WebDriver localDriver,String lastName) throws InterruptedException {
@@ -81,7 +77,6 @@ public class Paprio_ValidSignUp {
             System.out.println("Valid Password Test : Passed \t with data : " + password );
         else
             System.out.println("Valid Password Test : Failed \t with data : " + password );
-
     }
 
     public static void SignUp_withValidConfirmPassword(WebDriver localDriver,String confirmPassword) throws InterruptedException {
@@ -104,7 +99,6 @@ public class Paprio_ValidSignUp {
             System.out.println("Valid Confirm Password Test : Passed \twith data : " + confirmPassword );
         else
             System.out.println("Valid Confirm Password Test : Failed \twith data : " + confirmPassword );
-
     }
 
     public static void SignUp_withValidEmail(WebDriver localDriver,String email) throws InterruptedException {
@@ -129,10 +123,7 @@ public class Paprio_ValidSignUp {
     }
 
 
-
-
     public static void main(String[] args) throws InterruptedException {
-
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
